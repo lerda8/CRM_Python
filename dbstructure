@@ -1,0 +1,29 @@
+-- Customers table
+CREATE TABLE Customers (
+    customer_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    address TEXT NOT NULL,
+    phone_number TEXT NOT NULL
+);
+
+-- Employees table
+CREATE TABLE Employees (
+    employee_id INTEGER PRIMARY KEY,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL,
+    role TEXT NOT NULL CHECK (role IN ('clerk', 'delivery', 'manager'))
+);
+
+-- Orders table
+CREATE TABLE Orders (
+    order_id INTEGER PRIMARY KEY,
+    customer_id INTEGER,
+    description TEXT NOT NULL,
+    order_date DATE NOT NULL,
+    total_amount REAL NOT NULL,
+    completion_status BOOLEAN NOT NULL DEFAULT 0,
+    assigned_employee_id INTEGER,
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
+    FOREIGN KEY (assigned_employee_id) REFERENCES Employees(employee_id)
+);
+
