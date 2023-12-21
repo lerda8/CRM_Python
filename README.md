@@ -1,7 +1,7 @@
 This if a simple CRM running in terminal.
 
 
-To test it you can use these credentials:
+To test it run "main.py" and use these credentials:
 
 | Name |  Password  | Role |
 |:-----|:--------:|------:|
